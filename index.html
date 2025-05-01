@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liminal System</title>
   <style>
+    /* Base styles */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow-x: hidden;
-      font-family: sans-serif;
+      font-family: 'Raleway', 'Helvetica Neue', sans-serif;
       scroll-behavior: smooth;
+      color: #333;
+      line-height: 1.6;
     }
 
     body {
@@ -25,11 +29,46 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: url('/img/liminal_tech.gif') no-repeat center center;
+      background: url('img/liminal_tech.gif') no-repeat center center;
       background-size: cover;
       z-index: -2;
     }
 
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* h2::after { */
+    /*   content: ''; */
+    /*   position: absolute; */
+    /*   bottom: -10px; */
+    /*   left: 0; */
+    /*   width: 60px; */
+    /*   height: 4px; */
+    /*   background: #4a90e2; */
+    /* } */
+
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #4a90e2;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Hero section */
     .hero {
       height: 100vh;
       display: flex;
@@ -83,10 +122,169 @@
       box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
     }
 
+    /* Content sections */
     .content {
-      background-color: #f0f0f0;
-      padding: 4em 2em;
-      color: #333;
+      background-color: #fff;
+      padding: 6em 2em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .intro p {
+      font-size: 1.3rem;
+    }
+
+    /* Feature sections */
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 6rem;
+      gap: 2rem;
+    }
+
+    .section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .section-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .section-image {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .section-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .section-image img:hover {
+      transform: translateY(-10px);
+    }
+
+    /* CRM Integration Section */
+    .crm-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .crm-logo {
+      background: #f8f9fa;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #555;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Call to action */
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #4a90e2, #5cb3ff);
+      color: white;
+      padding: 4rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .cta h2 {
+      color: white;
+    }
+
+    .cta h2::after {
+      background: white;
+    }
+
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #4a90e2;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsive design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 6em;
+      }
+
+      .hero p {
+        font-size: 2em;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 4em;
+      }
+
+      .hero p {
+        font-size: 1.5em;
+      }
+
+      .section, .section:nth-child(even) {
+        flex-direction: column;
+      }
+
+      .section-content, .section-image {
+        width: 100%;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 3em;
+      }
+
+      .hero p {
+        font-size: 1.2em;
+      }
+
+      .content {
+        padding: 3em 1em;
+      }
     }
   </style>
 </head>
@@ -99,17 +297,111 @@
   </div>
 
   <div class="content">
-    <h2>What is Liminal?</h2>
-    <p>
-      Liminal System transforms your mortgage brokerage website into a lead-qualifying powerhouse.
-      Our intuitive workflow keeps visitors engaged while filtering for real, actionable opportunities.
-    </p>
+    <div class="container">
+      <div class="intro">
+        <h2>Transform Your Website into a Client Conversion Machine</h2>
+        <p>
+          Liminal System transforms your mortgage brokerage website into a lead-qualifying powerhouse.
+          Our intuitive workflow keeps visitors engaged while filtering for real, actionable opportunities.
+        </p>
+      </div>
+
+      <!-- Lead Capture Interface Section -->
+      <div class="section">
+        <div class="section-content">
+          <h3>Instant Pre-Qualification</h3>
+          <p>
+            Our responsive questionnaire captures essential financial information and instantly provides
+            prospects with realistic mortgage options based on their inputs. This immediate feedback
+            keeps potential clients engaged while qualifying them before they reach your inbox.
+          </p>
+        </div>
+        <div class="section-image">
+          <img src="img/image1.png" alt="Lead Capture Interface" width="500">
+        </div>
+      </div>
+
+      <!-- Conversion Rate Growth Section -->
+      <div class="section">
+        <div class="section-content">
+          <h3>Boost Conversion Rates</h3>
+          <p>
+            Brokers using Liminal report a 35% increase in qualified leads and 28% higher conversion rates.
+            Our intuitive interface guides prospects through each step, reducing abandonment rates significantly.
+          </p>
+          <p>
+            Stop wasting time on unqualified leads. Liminal's advanced algorithms pre-screen applicants,
+            allowing you to invest your valuable time with clients who are ready to move forward.
+          </p>
+        </div>
+        <div class="section-image">
+          <img src="img/image2.png" alt="Conversion Rate Growth Chart" width="500">
+        </div>
+      </div>
+
+      <!-- CRM Integration Section -->
+      <div class="section">
+        <div class="section-content">
+          <h3>Powerful CRM Integration</h3>
+          <p>
+            Access all captured leads through our intuitive dashboard. Review detailed qualification data,
+            applicant status, and communication history in one centralized system.
+          </p>
+          <p>
+            Already have a CRM you love? Liminal integrates seamlessly with popular mortgage broker platforms:
+          </p>
+          <div class="crm-logos">
+            <span class="crm-logo">Floify</span>
+            <span class="crm-logo">LendingPad</span>
+            <span class="crm-logo">Mortgage Coach</span>
+            <span class="crm-logo">Jungo</span>
+            <span class="crm-logo">Encompass</span>
+            <span class="crm-logo">Total Expert</span>
+          </div>
+        </div>
+        <div class="section-image">
+          <img src="img/image3.png" alt="CRM Dashboard Integration" width="500">
+        </div>
+      </div>
+
+      <!-- Website Redesign Section -->
+      <div class="section">
+        <div class="section-content">
+          <h3>Complete Website Redesign Available</h3>
+          <p>
+            Liminal integrates effortlessly with your current website design and branding.
+            Our system adapts to your existing color schemes, fonts, and styling for a cohesive look and feel.
+          </p>
+          <p>
+            Need a website refresh? Our design team can create a modern, high-converting mortgage broker
+            website built around the Liminal qualification system, optimized for lead generation.
+          </p>
+        </div>
+        <div class="section-image">
+          <img src="img/image4.png" alt="Website Transformation Before/After" width="500">
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="cta">
+        <h2>Get More Qualified Clients with Less Effort</h2>
+        <p>
+          Liminal transforms your website from a digital brochure into an active lead qualification engine.
+          Our system captures prospects 24/7, pre-qualifies them based on your criteria, and delivers
+          ready-to-contact leads directly to you.
+        </p>
+        <a href="#" class="btn">Get a Demo</a>
+      </div>
+    </div>
   </div>
 
   <script>
     function scrollDown() {
-      console.log("clicked");
-      document.body.scrollBy({ top: window.innerHeight * 0.3, left: 0, behavior: 'smooth' });
+      document.body.scrollTo({
+        top: window.innerHeight,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
   </script>
 
