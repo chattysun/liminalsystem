@@ -204,6 +204,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.6),
+                  inset 0 -20px 20px -20px rgba(0, 0, 0, 0.6),
+                  inset 0 0 80px rgba(0, 0, 0, 0.3);
     }
 
     .parallax-content {
@@ -211,6 +214,13 @@
       padding: 2rem 4rem;
       border-radius: 8px;
       text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .parallax-content:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
 
     .parallax-content h1 {
@@ -274,6 +284,11 @@
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-reverse {
+      background: #4a90e2;
+      color: white;
     }
 
     /* Responsive design */
@@ -389,6 +404,7 @@
             prospects with realistic mortgage options based on their inputs. This immediate feedback
             keeps potential clients engaged while qualifying them before they reach your inbox.
           </p>
+          <a href="#" class="btn btn-reverse">How can we help you?</a>
         </div>
         <div class="section-image">
           <img src="img/image1.png" alt="Lead Capture Interface" width="500">
