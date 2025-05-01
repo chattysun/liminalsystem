@@ -22,15 +22,14 @@
       color: black;
     }
 
-    body::before {
-      content: "";
+    /* Video background container */
+    .background-video {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: url('img/liminal_tech.gif') no-repeat center center;
-      background-size: cover;
+      object-fit: cover;
       z-index: -2;
     }
 
@@ -198,15 +197,26 @@
       padding: 0;
       margin: 0;
       position: relative;
-      background: url('img/parallax_bg.gif') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: inset 0 20px 20px -20px rgba(0, 0, 0, 0.6),
                   inset 0 -20px 20px -20px rgba(0, 0, 0, 0.6),
                   inset 0 0 80px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+    
+    .parallax-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translateX(-50%) translateY(-50%);
+      z-index: -1;
+      object-fit: cover;
     }
 
     .parallax-content {
@@ -379,6 +389,11 @@
 </head>
 <body>
 
+  <!-- Main background video -->
+  <video autoplay loop muted playsinline class="background-video">
+    <source src="img/liminal_tech.mp4" type="video/mp4">
+  </video>
+
   <div class="hero" id="hero">
     <h1>LIMINAL SYSTEM</h1>
     <p>Qualify more leads faster</p>
@@ -404,7 +419,7 @@
             prospects with realistic mortgage options based on their inputs. This immediate feedback
             keeps potential clients engaged while qualifying them before they reach your inbox.
           </p>
-          <a href="#" class="btn btn-reverse">How can we help you?</a>
+          <a href="https://app.liminalsystem.com/liminal" class="btn btn-reverse">How can we help you?</a>
         </div>
         <div class="section-image">
           <img src="img/image1.png" alt="Lead Capture Interface" width="500">
@@ -436,6 +451,9 @@
 
   <!-- Parallax Section -->
   <div class="parallax-section">
+    <video autoplay loop muted playsinline class="parallax-video">
+      <source src="img/parallax_bg.mp4" type="video/mp4">
+    </video>
     <div class="parallax-content">
       <h1>Elevate your web presence</h1>
     </div>
@@ -501,7 +519,7 @@
         Our system captures prospects 24/7, pre-qualifies them based on your criteria, and delivers
         ready-to-contact leads directly to you.
       </p>
-      <a href="#" class="btn">Get a Demo</a>
+      <a href="https://app.liminalsystem.com/liminal" class="btn">Get a Demo</a>
     </div>
   </div>
 
