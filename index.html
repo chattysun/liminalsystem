@@ -47,16 +47,6 @@
       display: inline-block;
     }
 
-    /* h2::after { */
-    /*   content: ''; */
-    /*   position: absolute; */
-    /*   bottom: -10px; */
-    /*   left: 0; */
-    /*   width: 60px; */
-    /*   height: 4px; */
-    /*   background: #4a90e2; */
-    /* } */
-
     h3 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
@@ -120,20 +110,39 @@
       cursor: pointer;
       z-index: 2;
       box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .scroll-indicator::after {
+      content: '';
+      width: 16px;
+      height: 16px;
+      border-right: 3px solid #4a90e2;
+      border-bottom: 3px solid #4a90e2;
+      transform: rotate(45deg) translateY(-5px);
     }
 
     /* Content sections */
-    .content {
-      background-color: #fff;
-      padding: 6em 2em;
-      position: relative;
-      z-index: 1;
+    .section-wrapper {
+      width: 100%;
+      padding: 0;
+      margin: 0;
     }
 
-    .container {
+    .section-wrapper:nth-child(odd) {
+      background-color: #fff;
+    }
+
+    .section-wrapper:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    .content-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 6rem 2rem;
     }
 
     .intro {
@@ -151,11 +160,10 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      margin-bottom: 6rem;
       gap: 2rem;
     }
 
-    .section:nth-child(even) {
+    .section-wrapper:nth-child(even) .section {
       flex-direction: row-reverse;
     }
 
@@ -202,19 +210,22 @@
 
     /* Call to action */
     .cta {
-      text-align: center;
+      width: 100%;
+      padding: 0;
+      margin: 0;
       background: linear-gradient(135deg, #4a90e2, #5cb3ff);
       color: white;
-      padding: 4rem 2rem;
-      margin-top: 2rem;
+    }
+
+    .cta-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      text-align: center;
     }
 
     .cta h2 {
       color: white;
-    }
-
-    .cta h2::after {
-      background: white;
     }
 
     .btn {
@@ -256,7 +267,7 @@
         font-size: 1.5em;
       }
 
-      .section, .section:nth-child(even) {
+      .section, .section-wrapper:nth-child(even) .section {
         flex-direction: column;
       }
 
@@ -271,6 +282,14 @@
       h3 {
         font-size: 1.5rem;
       }
+
+      .content-container {
+        padding: 4rem 2rem;
+      }
+
+      .cta-container {
+        padding: 4rem 2rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -282,8 +301,12 @@
         font-size: 1.2em;
       }
 
-      .content {
-        padding: 3em 1em;
+      .content-container {
+        padding: 3rem 1.5rem;
+      }
+
+      .cta-container {
+        padding: 3rem 1.5rem;
       }
     }
   </style>
@@ -296,8 +319,8 @@
     <div class="scroll-indicator" onclick="scrollDown()"></div>
   </div>
 
-  <div class="content">
-    <div class="container">
+  <div class="section-wrapper">
+    <div class="content-container">
       <div class="intro">
         <h2>Transform Your Website into a Client Conversion Machine</h2>
         <p>
@@ -320,7 +343,11 @@
           <img src="img/image1.png" alt="Lead Capture Interface" width="500">
         </div>
       </div>
+    </div>
+  </div>
 
+  <div class="section-wrapper">
+    <div class="content-container">
       <!-- Conversion Rate Growth Section -->
       <div class="section">
         <div class="section-content">
@@ -338,7 +365,11 @@
           <img src="img/image2.png" alt="Conversion Rate Growth Chart" width="500">
         </div>
       </div>
+    </div>
+  </div>
 
+  <div class="section-wrapper">
+    <div class="content-container">
       <!-- CRM Integration Section -->
       <div class="section">
         <div class="section-content">
@@ -363,7 +394,11 @@
           <img src="img/image3.png" alt="CRM Dashboard Integration" width="500">
         </div>
       </div>
+    </div>
+  </div>
 
+  <div class="section-wrapper">
+    <div class="content-container">
       <!-- Website Redesign Section -->
       <div class="section">
         <div class="section-content">
@@ -381,17 +416,19 @@
           <img src="img/image4.png" alt="Website Transformation Before/After" width="500">
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Call to Action -->
-      <div class="cta">
-        <h2>Get More Qualified Clients with Less Effort</h2>
-        <p>
-          Liminal transforms your website from a digital brochure into an active lead qualification engine.
-          Our system captures prospects 24/7, pre-qualifies them based on your criteria, and delivers
-          ready-to-contact leads directly to you.
-        </p>
-        <a href="#" class="btn">Get a Demo</a>
-      </div>
+  <!-- Call to Action -->
+  <div class="cta">
+    <div class="cta-container">
+      <h2>Get More Qualified Clients with Less Effort</h2>
+      <p>
+        Liminal transforms your website from a digital brochure into an active lead qualification engine.
+        Our system captures prospects 24/7, pre-qualifies them based on your criteria, and delivers
+        ready-to-contact leads directly to you.
+      </p>
+      <a href="#" class="btn">Get a Demo</a>
     </div>
   </div>
 
